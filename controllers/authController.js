@@ -7,7 +7,7 @@ secrtkey = "g&y"
 const registerController = async(req ,res)=>{
     {
         try {
-          const { name, email, password, phone, address, answer } = req.body;
+          const { name, email, password, phone, address, answer,role } = req.body;
           //validations
           if (!name) {
             return res.send({ error: "Name is Required" });
@@ -26,6 +26,9 @@ const registerController = async(req ,res)=>{
           }
           if (!answer) {
             return res.send({ message: "Answer is Required" });
+          }
+          if (!role) {
+            return res.send({ message: "Role is Required" });
           }
           //check user
           const exisitingUser = await userModel.findOne({ email });
@@ -46,6 +49,7 @@ const registerController = async(req ,res)=>{
             address,
             password: hashedPassword,
             answer,
+            role,
           }).save();
       
           res.status(201).send({
