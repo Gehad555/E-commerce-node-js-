@@ -2,6 +2,9 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { useAuth } from "../../Context/auth";
 import toast from "react-hot-toast";
+import "../../index.css";
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
@@ -71,7 +74,12 @@ const Header = () => {
                     </NavLink>
                     <ul className="dropdown-menu">
                       <li>
-                        <NavLink to="/dashboard" className="dropdown-item">
+                        <NavLink
+                          to={`/dashboard/${
+                            auth?.user?.role === 1 ? "admin" : "user"
+                          }`}
+                          className="dropdown-item"
+                        >
                           Dashboard
                         </NavLink>
                       </li>

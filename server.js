@@ -26,7 +26,7 @@ app.use("/api/v1/product", productRoutes);
 
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send("<h1>Welcome to our ecommerce app</h1>");
 });
 
 app.listen(port, () => {

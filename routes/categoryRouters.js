@@ -1,5 +1,9 @@
-const { createCategory,updateCategory,deleteCategory
-,categoryControlller,singleCategoryController} = require('../controllers/categoryController');
+const { createCategory,
+        updateCategory,
+        deleteCategory,
+        categoryControlller,
+        singleCategoryController
+      } = require('../controllers/categoryController');
 const { requiresignin, adminAccess } = require('../middleware/authmiddleware')
 
 const express = require('express');

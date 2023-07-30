@@ -3,8 +3,11 @@ import Layout from "./../../components/Layout/Layout";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from 'react-hot-toast';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../styles/AuthStyles.css";
+import { Select } from "antd";
+const { Option } = Select;
+
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -13,6 +16,8 @@ const Register = () => {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [answer, setAnswer] = useState("");
+  const [role, setRole] = useState("");
+
   const navigate = useNavigate();
 
   // form function
@@ -26,6 +31,7 @@ const Register = () => {
         phone,
         address,
         answer,
+        role,
       });
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
@@ -112,6 +118,32 @@ const Register = () => {
               required
             />
           </div>
+          <div className="mb-3">
+                <Select
+                  bordered={false}
+                  placeholder="Select Role "
+                  size="large"
+                  showSearch
+                  className="form-select mb-3"
+                  onChange={(value) => {
+                    setRole(value);
+                  }}
+                >
+                  <Option value="0">User</Option>
+                  <Option value="1">Admin</Option>
+                </Select>
+              </div>
+          {/* <div className="mb-3">
+            <input
+              type="text"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              className="form-control"
+              id="exampleInputEmail1"
+              placeholder="What is Your role"
+              required
+            />
+          </div> */}
           <button type="submit" className="btn btn-primary">
             REGISTER
           </button>
