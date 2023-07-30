@@ -1,7 +1,8 @@
 
 const { createProduct,getProductController,getSingleProductController
-    ,deleteProductController ,updateProductController,
-    productPhotoController
+      ,deleteProductController ,updateProductController,
+      productPhotoController , productFiltersController ,
+      productCountController , productListController
 } = require('../controllers/productController');
 const { requiresignin, adminAccess } = require('../middleware/authmiddleware')
 const formidable = require('express-formidable');
@@ -21,5 +22,14 @@ router.put(
     formidable(),
     updateProductController
   );
+
+router.post("/product-filters", productFiltersController);
+
+
+router.get("/product-count", productCountController);
+
+
+router.get("/product-list/:page", productListController);
+
 
 module.exports = router;
