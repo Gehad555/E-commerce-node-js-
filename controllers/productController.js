@@ -237,6 +237,7 @@ const getSingleProductController = async (req, res) => {
     });
   }
 };
+ 
     exports.createProduct = createProduct;
     exports.getProductController = getProductController;
     exports.getSingleProductController = getSingleProductController;

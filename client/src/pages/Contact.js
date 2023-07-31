@@ -4,6 +4,7 @@ import { BiMailSend, BiPhoneCall, BiSupport } from "react-icons/bi";
 const Contact = () => {
   return (
     <Layout>
+      <center>
       <div className="row contactus ">
         <div className="col-md-6 ">
          
@@ -26,6 +27,7 @@ const Contact = () => {
          
         </div>
       </div>
+      </center>
     </Layout>
   );
 };

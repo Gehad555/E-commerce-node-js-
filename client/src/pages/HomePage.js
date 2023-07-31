@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Layout from "./../components/Layout/Layout";
+import toast from "react-hot-toast";
 
 import axios from "axios";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
+
 const HomePage = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -12,18 +14,18 @@ const HomePage = () => {
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-
-  //get all cat
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
-      if (data?.success) {
-        setCategories(data?.category);
+      const { data } = await axios.get("/api/v1/category/all");
+      if (data.success) {
+        setCategories(data.category);
       }
     } catch (error) {
       console.log(error);
+      toast.error("Something wwent wrong in getting catgeory");
     }
   };
+
 
   useEffect(() => {
     getAllCategory();
@@ -101,8 +103,8 @@ const HomePage = () => {
   };
   return (
     <Layout title={"ALl Products - Best offers "}>
-      <div className="container-fluid row mt-3">
-        <div className="col-md-2">
+       <div className="container-fluid row mt-3 home-page">
+        <div className="col-md-3 filters">
           <h4 className="text-center">Filter By Category</h4>
           <div className="d-flex flex-column">
             {categories?.map((c) => (
