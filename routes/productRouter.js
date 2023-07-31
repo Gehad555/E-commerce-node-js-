@@ -2,7 +2,7 @@
 const { createProduct,getProductController,getSingleProductController
       ,deleteProductController ,updateProductController,
       productPhotoController , productFiltersController ,
-      productCountController , productListController
+      productCountController , productListController,
 } = require('../controllers/productController');
 const { requiresignin, adminAccess } = require('../middleware/authmiddleware')
 const formidable = require('express-formidable');
@@ -30,6 +30,8 @@ router.get("/product-count", productCountController);
 
 
 router.get("/product-list/:page", productListController);
+
+
 
 
 module.exports = router;

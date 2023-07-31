@@ -22,5 +22,8 @@ root.render(
   </AuthProvider>
 );
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3bc47d3c81d5bf7482695bcbef25f9bee573a857
 reportWebVitals();
