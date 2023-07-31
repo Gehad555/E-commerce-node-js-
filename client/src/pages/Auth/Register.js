@@ -2,13 +2,10 @@ import React, { useState } from "react";
 import Layout from "./../../components/Layout/Layout";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import toast from 'react-hot-toast';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import toast from "react-hot-toast";
 import "../../styles/AuthStyles.css";
 import { Select } from "antd";
 const { Option } = Select;
-
-
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -17,7 +14,6 @@ const Register = () => {
   const [address, setAddress] = useState("");
   const [answer, setAnswer] = useState("");
   const [role, setRole] = useState("");
-
   const navigate = useNavigate();
 
   // form function
@@ -72,7 +68,6 @@ const Register = () => {
               placeholder="Enter Your Email "
               required
             />
-            
           </div>
           <div className="mb-3">
             <input
@@ -114,7 +109,7 @@ const Register = () => {
               onChange={(e) => setAnswer(e.target.value)}
               className="form-control"
               id="exampleInputEmail1"
-              placeholder="What is Your hobby"
+              placeholder="What is Your Favorite sports"
               required
             />
           </div>
@@ -133,17 +128,6 @@ const Register = () => {
                   <Option value="1">Admin</Option>
                 </Select>
               </div>
-          {/* <div className="mb-3">
-            <input
-              type="text"
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-              className="form-control"
-              id="exampleInputEmail1"
-              placeholder="What is Your role"
-              required
-            />
-          </div> */}
           <button type="submit" className="btn btn-primary">
             REGISTER
           </button>
@@ -152,4 +136,5 @@ const Register = () => {
     </Layout>
   );
 };
+
 export default Register;

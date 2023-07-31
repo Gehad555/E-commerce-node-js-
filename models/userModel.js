@@ -30,7 +30,6 @@ const userSchema = new mongoose.Schema(
       },
       role: {
         type: Number,
-  
       },
     },
     { timestamps: true }

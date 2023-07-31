@@ -3,7 +3,7 @@ import Layout from "./../components/Layout/Layout";
 
 const About = () => {
   return (
-    <Layout>
+    <Layout title={"About us - Ecommer app"}>
       <div className="row contactus ">
         <div className="col-md-6 ">
           <img
@@ -14,7 +14,7 @@ const About = () => {
         </div>
         <div className="col-md-4">
           <p className="text-justify mt-2">
-           GEHAD AND YASMEEN
+          Gehad Shalaby and Yasmeen Fakhri from Suez canal university.
           </p>
         </div>
       </div>

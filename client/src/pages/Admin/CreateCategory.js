@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import CategoryForm from "../../components/Form/CategoryForm";
 import { Modal } from "antd";
+
 const CreateCategory = () => {
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState("");
@@ -26,7 +27,7 @@ const CreateCategory = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error("somthing went wrong in input form");
+      // toast.error("somthing went wrong in input form");
     }
   };
 
@@ -34,8 +35,8 @@ const CreateCategory = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get("/api/v1/category/all");
-      if (data.success) {
-        setCategories(data.category);
+      if (data?.success) {
+        setCategories(data?.category);
       }
     } catch (error) {
       console.log(error);
@@ -52,10 +53,11 @@ const CreateCategory = () => {
     e.preventDefault();
     try {
       const { data } = await axios.put(
+        // /update/:id
         `/api/v1/category/update/${selected._id}`,
         { name: updatedName }
       );
-      if (data.success) {
+      if (data?.success) {
         toast.success(`${updatedName} is updated`);
         setSelected(null);
         setUpdatedName("");
@@ -65,13 +67,14 @@ const CreateCategory = () => {
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error("Somtihing went wrong");
+      console.log(error);
     }
   };
   //delete category
   const handleDelete = async (pId) => {
     try {
       const { data } = await axios.delete(
+        // /delete/:id
         `/api/v1/category/delete/${pId}`
       );
       if (data.success) {
@@ -87,7 +90,7 @@ const CreateCategory = () => {
   };
   return (
     <Layout title={"Dashboard - Create Category"}>
-      <div className="container-fluid m-3 p-3">
+      <div className="container-fluid m-3 p-3 dashboard">
         <div className="row">
           <div className="col-md-3">
             <AdminMenu />
