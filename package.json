@@ -15,17 +15,11 @@
   "license": "ISC",
   "dependencies": {
     "antd": "^5.7.3",
-<<<<<<< HEAD
     "app": "^0.1.0",
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
     "bootstrap": "^5.3.1",
     "braintree-web-drop-in-react": "^1.2.1",
-=======
-    "axios": "^1.4.0",
-    "bcrypt": "^5.1.0",
-    "bootstrap": "^5.3.1",
->>>>>>> 3bc47d3c81d5bf7482695bcbef25f9bee573a857
     "colors": "^1.4.0",
     "concurrently": "^8.2.0",
     "cors": "^2.8.5",

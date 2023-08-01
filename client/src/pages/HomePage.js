@@ -1,5 +1,11 @@
+// import React, { useState, useEffect } from "react";
+// import Layout from "./../components/Layout/Layout";
+// import toast from "react-hot-toast";
+
+// import axios from "axios";
+// import { Checkbox, Radio } from "antd";
+// import { Prices } from "../components/Prices";
 import React, { useState, useEffect } from "react";
-<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
@@ -9,14 +15,6 @@ import toast from "react-hot-toast";
 import Layout from "./../components/Layout/Layout";
 import { AiOutlineReload } from "react-icons/ai";
 import "../styles/Homepage.css";
-=======
-import Layout from "./../components/Layout/Layout";
-import toast from "react-hot-toast";
-
-import axios from "axios";
-import { Checkbox, Radio } from "antd";
-import { Prices } from "../components/Prices";
->>>>>>> 3bc47d3c81d5bf7482695bcbef25f9bee573a857
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -31,13 +29,8 @@ const HomePage = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get("/api/v1/category/all");
-<<<<<<< HEAD
-      if (data?.success) {
-        setCategories(data?.category);
-=======
       if (data.success) {
         setCategories(data.category);
->>>>>>> 3bc47d3c81d5bf7482695bcbef25f9bee573a857
       }
     } catch (error) {
       console.log(error);
@@ -122,19 +115,7 @@ const HomePage = () => {
   };
   return (
     <Layout title={"ALl Products - Best offers "}>
-<<<<<<< HEAD
-     {/* banner image  */}
-      { <img
-        src="/images/banner.png"
-        className="banner-img"
-        alt="bannerimage"
-        width={"100%"}
-      /> }
-      {/* banner image */}
-      <div className="container-fluid row mt-3 home-page">
-=======
        <div className="container-fluid row mt-3 home-page">
->>>>>>> 3bc47d3c81d5bf7482695bcbef25f9bee573a857
         <div className="col-md-3 filters">
           <h4 className="text-center">Filter By Category</h4>
           <div className="d-flex flex-column">
