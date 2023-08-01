@@ -1,4 +1,4 @@
-const userModel = require("..//models/userModel");
+const userModel = require("../models/userModel");
 const{comparePassword, hashPassword} = require("../helpers/authHelper")
 const JWT = require("jsonwebtoken")
 secrtkey = "g&y"
@@ -169,7 +169,8 @@ const testController = (req, res) => {
     res.send({ error });
   }
 };
-const updateProfileController = async (req, res) => {
+//update prfole
+ const updateProfileController = async (req, res) => {
   try {
     const { name, email, password, address, phone } = req.body;
     const user = await userModel.findById(req.user._id);
@@ -203,7 +204,48 @@ const updateProfileController = async (req, res) => {
   }
 };
 
+//orders
+ const getOrdersController = async (req, res) => {
+  try {
+    const orders = await orderModel
+      .find({ buyer: req.user._id })
+      .populate("products", "-photo")
+      .populate("buyer", "name");
+    res.json(orders);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error WHile Geting Orders",
+      error,
+    });
+  }
+};
+//orders
+ const getAllOrdersController = async (req, res) => {
+  try {
+    const orders = await orderModel
+      .find({})
+      .populate("products", "-photo")
+      .populate("buyer", "name")
+      .sort({ createdAt: "-1" });
+    res.json(orders);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error WHile Geting Orders",
+      error,
+    });
+  }
+};
 
 
-module.exports = {registerController , loginController ,testController , forgotPasswordController
-,updateProfileController}
+
+module.exports = {registerController ,
+                 loginController ,
+                 testController , 
+                 forgotPasswordController
+                ,updateProfileController,
+                getOrdersController,
+                getAllOrdersController}

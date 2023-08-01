@@ -1,5 +1,12 @@
 const express = require("express");
-const {registerController , loginController,testController , forgotPasswordController,updateProfileController
+const {registerController ,
+   loginController,
+   testController ,
+    forgotPasswordController,
+    getOrdersController,
+    updateProfileController,
+    getAllOrdersController
+
 }=require("../controllers/authController") ;
 const { requiresignin,adminAccess } = require("../middleware/authmiddleware");
 
@@ -24,7 +31,17 @@ router.get("/test",requiresignin,adminAccess, testController);
 router.get("/user-auth", requiresignin, (req, res) => {
     res.status(200).send({ ok: true });
   });
-  router.put("/profile",requiresignin , updateProfileController);
+
+
+//update profile
+router.put("/profile",requiresignin, updateProfileController);
+
+//orders
+router.get("/orders", requiresignin, getOrdersController);
+
+//all orders
+router.get("/all-orders", requiresignin, adminAccess, getAllOrdersController);
+
 
 //protected Admin route auth
 router.get("/admin-auth", requiresignin, adminAccess, (req, res) => {

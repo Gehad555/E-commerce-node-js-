@@ -1,10 +1,3 @@
-// import React, { useState, useEffect } from "react";
-// import Layout from "./../components/Layout/Layout";
-// import toast from "react-hot-toast";
-
-// import axios from "axios";
-// import { Checkbox, Radio } from "antd";
-// import { Prices } from "../components/Prices";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
