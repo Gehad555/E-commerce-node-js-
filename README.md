@@ -1,5 +1,4 @@
 # E-commerce-node-js- react
-# To-Do List Project
 
 ## Description
 This is a simple  E-commerce  application built with Node.js, Express, MongoDB and React .
